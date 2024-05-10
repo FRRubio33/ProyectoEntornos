@@ -8,4 +8,13 @@ public class Administrador extends Usuario{
 		super(n, t);
 	}
 
+	
+	//Methods
+	public void verMensajesRecibidoPorTlfConcreto() {
+		
+	}
+	
+	public void verMensajesEnviadosPorTlfConcreto() {
+		
+	}
 }
