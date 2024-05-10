@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Usuario {
 	private String nombre;
@@ -53,7 +54,24 @@ public class Usuario {
 	}
 	
 	public void enviarMensaje() {
-
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Es un mensaje de texto o una imagen?");
+		String respuesta = sc.nextLine();
+		if(respuesta.equalsIgnoreCase("texto")) {
+			System.out.println("Dime el destinatario(numero)");
+			int numDesti=sc.nextInt();
+			System.out.println("Dime el contenido");
+			String contenido = sc.nextLine();
+			Mensaje m = new Texto(numDesti, this.telefono, contenido);
+		}else if(respuesta.equalsIgnoreCase("imagen")) {
+			System.out.println("Dime el destinatario(numero)");
+			int numDesti=sc.nextInt();
+			System.out.println("Dime el tamaño de la imagen");
+			int tamaño = sc.nextInt();
+			System.out.println("Dime el nombre del fichero");
+			String nf = sc.nextLine();
+			Mensaje m = new Multimedia(numDesti, this.telefono, nf, tamaño);
+		}
 	}
 
 	public void verMensajesRecibidos() {
