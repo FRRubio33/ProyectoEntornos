@@ -1,5 +1,9 @@
 package mensajeria;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Usuario {
@@ -33,6 +37,21 @@ public class Usuario {
 	}
 
 	// Methods
+	public void crearFichero() {
+		String rutaContacto="src/Contactos.txt";
+		String rutaMensaje = "src/Mensajes.txt";
+		PrintWriter pw;
+		try {
+			pw = new PrintWriter(new FileWriter(new File(rutaContacto)));
+			pw = new PrintWriter(new FileWriter(new File(rutaMensaje)));
+			// Cierre del fichero
+			pw.close();
+		} catch (IOException e) {
+
+			System.out.println("Error: en el metodo crear Fichero");
+		}
+	}
+	
 	public void enviarMensaje() {
 
 	}
