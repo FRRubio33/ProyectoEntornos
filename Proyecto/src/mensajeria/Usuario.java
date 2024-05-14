@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Usuario {
 	private String nombre;
 	private int telefono;
@@ -39,7 +40,7 @@ public class Usuario {
 
 	// Methods
 	public void crearFichero() {
-		String rutaContacto="src/Contactos.txt";
+		String rutaContacto = "src/Contactos.txt";
 		String rutaMensaje = "src/Mensajes.txt";
 		PrintWriter pw;
 		try {
@@ -52,20 +53,20 @@ public class Usuario {
 			System.out.println("Error: en el metodo crear Fichero");
 		}
 	}
-	
+
 	public void enviarMensaje() {
-		Scanner sc=new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Es un mensaje de texto o una imagen?");
 		String respuesta = sc.nextLine();
-		if(respuesta.equalsIgnoreCase("texto")) {
+		if (respuesta.equalsIgnoreCase("texto")) {
 			System.out.println("Dime el destinatario(numero)");
-			int numDesti=sc.nextInt();
+			int numDesti = sc.nextInt();
 			System.out.println("Dime el contenido");
 			String contenido = sc.nextLine();
 			Mensaje m = new Texto(numDesti, this.telefono, contenido);
-		}else if(respuesta.equalsIgnoreCase("imagen")) {
+		} else if (respuesta.equalsIgnoreCase("imagen")) {
 			System.out.println("Dime el destinatario(numero)");
-			int numDesti=sc.nextInt();
+			int numDesti = sc.nextInt();
 			System.out.println("Dime el tamaño de la imagen");
 			int tamaño = sc.nextInt();
 			System.out.println("Dime el nombre del fichero");
@@ -79,15 +80,16 @@ public class Usuario {
 	}
 
 	public void verMensajesEnviados() {
-		
+
 	}
 
 	public void verMensajesRecibidosPor() {
 
 	}
 
-	public void añadirContacto() {
-
+	public void añadirContacto(Usuario contacto) {
+		contactos.add(contacto);
+		this.guardarContactoFichero(contacto);
 	}
 
 	public void verListaContactos() {
@@ -95,18 +97,29 @@ public class Usuario {
 	}
 
 	public void guardarMensajeFichero(Mensaje m) {
-		
+
 	}
-	
-	public void guardarContactoFichero(Usuario u) {
-		
+
+	public void guardarContactoFichero(Usuario contacto) {
+		String ruta = "src/Contactos.txt";
+		PrintWriter pw;
+		try {
+			pw = new PrintWriter(new FileWriter(new File(ruta), true));
+			pw.print(contacto);
+
+			pw.println();
+
+			pw.close();
+		} catch (IOException e) {
+			System.out.println("Error: en el metodo guardarContactoFichero");
+		}
 	}
 
 	public void buscarMensajesFichero() {
-		
+
 	}
-	
+
 	public void buscarContactosFichero() {
-		
+
 	}
 }
