@@ -63,7 +63,7 @@ public class Usuario {
 			int numDesti = sc.nextInt();
 			System.out.println("Dime el contenido");
 			String contenido = sc.nextLine();
-			Mensaje m = new Texto(numDesti, this.telefono, contenido);
+			Texto m = new Texto(numDesti, this.telefono, contenido);
 		} else if (respuesta.equalsIgnoreCase("imagen")) {
 			System.out.println("Dime el destinatario(numero)");
 			int numDesti = sc.nextInt();
@@ -71,7 +71,7 @@ public class Usuario {
 			int tamaño = sc.nextInt();
 			System.out.println("Dime el nombre del fichero");
 			String nf = sc.nextLine();
-			Mensaje m = new Multimedia(numDesti, this.telefono, nf, tamaño);
+			Multimedia m = new Multimedia(numDesti, this.telefono, nf, tamaño);
 		}
 	}
 
