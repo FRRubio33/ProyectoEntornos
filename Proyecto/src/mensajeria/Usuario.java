@@ -61,9 +61,13 @@ public class Usuario {
 		if (respuesta.equalsIgnoreCase("texto")) {
 			System.out.println("Dime el destinatario(numero)");
 			int numDesti = sc.nextInt();
+			sc.nextLine();
 			System.out.println("Dime el contenido");
 			String contenido = sc.nextLine();
 			Texto m = new Texto(numDesti, this.telefono, contenido);
+			System.out.println( m.toString());
+			System.out.println();
+			System.out.println();
 		} else if (respuesta.equalsIgnoreCase("imagen")) {
 			System.out.println("Dime el destinatario(numero)");
 			int numDesti = sc.nextInt();
@@ -72,7 +76,11 @@ public class Usuario {
 			System.out.println("Dime el nombre del fichero");
 			String nf = sc.nextLine();
 			Multimedia m = new Multimedia(numDesti, this.telefono, nf, tamaño);
+			System.out.println(m.toString());
+			System.out.println();
+			System.out.println();
 		}
+		
 	}
 
 	public void verMensajesRecibidos() {
@@ -83,7 +91,7 @@ public class Usuario {
 
 	}
 
-	public void verMensajesRecibidosPor() {
+	public void verMensajesRecibidosPor(Usuario u) {
 
 	}
 

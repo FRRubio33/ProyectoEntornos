@@ -27,4 +27,12 @@ public class Mensaje {
 		this.remitente = remitente;
 
 	}
+
+	@Override
+	public String toString() {
+		return "De:" + destinatario + "\nPara:" + remitente;
+	}
+	
+	
+	
 }

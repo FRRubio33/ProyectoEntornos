@@ -24,5 +24,14 @@ public class Multimedia extends Mensaje{
 	public void setTamaño(int tamaño) {
 		this.tamaño = tamaño;
 	}
+
+
+	
+	
+	//Methods
+	@Override
+	public String toString() {
+		return super.toString()+" nombreFichero=" + nombreFichero + ", tamaño=" + tamaño ;
+	}
 	
 }
