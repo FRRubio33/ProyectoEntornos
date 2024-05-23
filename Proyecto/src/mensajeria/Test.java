@@ -3,11 +3,19 @@ package mensajeria;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author Marta y Fabio
+ * 
+ * Clase principal de la aplicación de mensajería.
+ */
 public class Test {
 	private static ArrayList<Usuario> usuarios = new ArrayList<>();
 
+	/**
+	 * Método principal que inicia la aplicación de mensajería.
+	 *
+	 */
 	public static void main(String[] args) {
-
 		Scanner sc = new Scanner(System.in);
 		while (true) {
 			System.out.println("1. Añadir usuario");
@@ -32,6 +40,10 @@ public class Test {
 		}
 	}
 
+	/**
+	 * Añade un nuevo usuario a la lista de usuarios.
+	 *
+	 */
 	public static void añadirUsuario(Scanner sc) {
 		System.out.println("Ingrese el número de teléfono:");
 		int telefono = sc.nextInt();
@@ -47,11 +59,14 @@ public class Test {
 		}
 
 		Usuario nuevoUsuario = new Usuario(nombre, telefono);
-
 		usuarios.add(nuevoUsuario);
 		System.out.println("Usuario añadido con éxito.");
 	}
 
+	/**
+	 * Permite a un usuario existente entrar en el sistema.
+	 *
+	 */
 	public static void entrar(Scanner sc) {
 		System.out.println("Ingrese el número de teléfono:");
 		int telefono = sc.nextInt();
@@ -86,7 +101,7 @@ public class Test {
 			case 2:
 				System.out.println("Ingrese el número de teléfono del contacto:");
 				int telefonoContacto = sc.nextInt();
-				sc.nextLine(); // Limpiar el buffer
+				sc.nextLine();
 				System.out.println("Ingrese el nombre del contacto:");
 				String nombreContacto = sc.nextLine();
 				Usuario contacto = new Usuario(nombreContacto, telefonoContacto);
@@ -102,7 +117,7 @@ public class Test {
 				if (usuario instanceof Administrador) {
 					System.out.println("Ingrese el número de teléfono del usuario a ver mensajes:");
 					int telefonoOtroUsuario = sc.nextInt();
-					sc.nextLine(); // Limpiar el buffer
+					sc.nextLine();
 					Usuario otroUsuario = buscarUsuario(telefonoOtroUsuario);
 					if (otroUsuario != null) {
 						((Administrador) usuario).verMensajesRecibidosPor(otroUsuario);
@@ -125,6 +140,12 @@ public class Test {
 		}
 	}
 
+	/**
+	 * Busca un usuario en la lista de usuarios por su número de teléfono.
+	 *
+	 * @param telefono El número de teléfono del usuario a buscar.
+	 * @return El usuario encontrado o null si no se encuentra.
+	 */
 	public static Usuario buscarUsuario(int telefono) {
 		for (Usuario usuario : usuarios) {
 			if (usuario.getTelefono() == telefono) {
@@ -133,5 +154,4 @@ public class Test {
 		}
 		return null;
 	}
-
 }
