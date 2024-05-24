@@ -18,7 +18,7 @@ public class Test {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		while (true) {
-			System.out.println("1. Añadir usuario");
+			System.out.println("1. Aniadir usuario");
 			System.out.println("2. Entrar");
 			System.out.println("3. Salir");
 			int opcion = sc.nextInt();

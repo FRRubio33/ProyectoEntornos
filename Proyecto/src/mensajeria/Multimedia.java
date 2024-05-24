@@ -31,7 +31,7 @@ public class Multimedia extends Mensaje{
 	//Methods
 	@Override
 	public String toString() {
-		return super.toString()+" nombreFichero=" + nombreFichero + ", tamaño=" + tamaño ;
+		return super.toString()+"\n NombreFichero=" + nombreFichero + ", tamaño=" + tamaño ;
 	}
 	
 }

@@ -106,6 +106,7 @@ public class Usuario {
             int numDesti = sc.nextInt();
             System.out.println("Dime el tamaño de la imagen");
             int tamaño = sc.nextInt();
+            sc.nextLine();
             System.out.println("Dime el nombre del fichero");
             String nf = sc.nextLine();
             Multimedia m = new Multimedia(numDesti, this.telefono, nf, tamaño);
